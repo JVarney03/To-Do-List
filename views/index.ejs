@@ -1,0 +1,76 @@
+<%- include('partials/header.ejs') %>
+
+<body>
+    <div class="nav-container">
+        <a href="/today" class="page-toggle <% if (page === "today") { %>
+            active-page
+        <% } %>">
+            <span class="material-symbols-outlined">
+                cottage
+            </span>
+            <h1 class="toggle-text">Today</h1>
+        </a>
+        
+        <a href="/work" class="page-toggle <% if (page === "work") { %>
+            active-page
+        <% } %>">
+            <span class="material-symbols-outlined">
+                work
+            </span>
+            <h1 class="toggle-text">Work</h1>
+        </a>
+    </div>
+
+    <% if (page === "today") { %>
+        <span class="material-symbols-outlined page-icon">
+            cottage
+        </span>
+    <% } else if (page === "work") { %>
+        <span class="material-symbols-outlined page-icon">
+            work
+        </span>
+    <% } %>
+
+   <div class="todo-list">
+
+    <div class="form-container">
+        <button  class="form-open">
+            <span class="material-symbols-outlined form-icon">
+                add_circle
+            </span>
+            <h1 class="form-button-text">Add To-do</h1>
+        </button>
+    </div>
+
+    <form class="task-form hidden" id="input-form"
+    <% if (page === "today") { %>
+        action="/submit-today"
+    <% } else if (page === "work") { %>
+        action="/submit-work"
+    <% } %>
+    method="post">
+        <label for="tName">Task Name</label>
+        <input type="text" name="tName">
+        <label for="tDescription">Description</label>
+        <input type="text" name="tDescription">
+        <input type="submit" value="Submit">
+    </form>
+
+    
+    <% for( let i = 0; i < taskList.length; i++ ) { %>
+        <div class="task">
+            <div class="task-content-container">
+                <h2 class="task-title"> <%= taskList[i][0] %> </h2>
+                <p class="task-description"> <%= taskList[i][1] %> </p>
+            </div>
+            <input type="checkbox" class="completed">
+        </div>
+        <hr>
+    <% } %>
+
+   </div>
+
+</body>
+
+<%- include('partials/footer.ejs') %>
+

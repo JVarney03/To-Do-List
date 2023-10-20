@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../public/styles/main.css">
+</head>
+<body>
+
+    <div class="nav-container">
+        <a href="/today" class="page-toggle">
+            <span class="material-symbols-outlined">
+                cottage
+            </span>
+            <h1 class="toggle-text">Today</h1>
+        </a>
+        
+        <a href="/work" class="page-toggle">
+            <span class="material-symbols-outlined">
+                work
+            </span>
+            <h1 class="toggle-text">Work</h1>
+        </a>
+    </div>
+
+
+    
+    <div class="todo-list">
+    <form action="/submit-today" method="post">
+        <input type="text" name="tName" placeholder="Task">
+        <input type="text" name="tDescription" placeholder="Task Description">
+        <input type="submit" value="Submit">
+    </form>
+    
+        <div class="task">
+            <h2 class="task-title">Clean</h2>
+            <p class="task-description">Clean bedroom and take out the trash</p>
+            <hr>
+        </div>
+
+    </div>
+
+
+
+
+
+    
+</body>
+</html>

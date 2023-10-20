@@ -1,0 +1,199 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 400;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: 100%;
+}
+
+.material-symbols-outlined {
+    background-color: transparent;
+    font-size: clamp(1rem, 5vw, 3rem);
+    padding: 0px 5px;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1 {
+    font-weight: bold;
+    font-size: clamp(1rem, 5vw, 3rem);
+}
+
+h2 {
+    font-size: clamp(1rem, 2vw, 2.5rem);
+}
+
+p, label, input[type=submit] {
+    font-size: clamp(0.75rem, 1vw, 1.5rem);
+}
+
+body {
+    background-color: #E3E8FD;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nav-container {
+    position: sticky;
+    z-index: 1;
+    top: 0;
+    background-color: #D81E5B;
+    box-shadow:  3px 5px 10px;
+    display: flex;
+    justify-content: space-around;
+    border-radius: 0 0 25px 25px;
+    width: 50%;
+}
+
+.page-toggle {
+    display: flex;
+    align-items: center;
+    color: white;
+    margin: 10px 50px;
+    border: none;
+    transition: 400ms;
+}
+
+
+
+.page-toggle:hover {
+    color: black;
+    transition: 400ms;
+}
+
+.active-page {
+    color: black;
+}
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 2vw;
+}
+
+.page-icon {
+    color: #D81E5B;
+    font-size: clamp(2rem, 8vw, 6rem);
+    margin: 3vw;
+}
+
+.todo-list {
+    background-color: white;
+    min-width: 40vw;
+    max-width: 60vw;
+    box-shadow:  3px 5px 10px;
+    padding: 4vw;
+    margin-bottom: 50px;
+    border-radius: 10px;
+    min-height: 500px;
+}
+
+.form-open {
+    display: flex;
+    align-items: center;
+    color: white;
+    border-radius: 10px;
+    background-color: #D81E5B;
+    border-color: #D81E5B;
+    padding: 5px 10px;
+    box-shadow:  3px 5px 10px;
+    cursor: pointer;
+}
+
+.form-open:hover {
+    background-color: transparent;
+    color: #D81E5B;
+}
+
+.form-button-text {
+    font-size: clamp(0.5rem, 4vw, 3rem);
+}
+
+
+.task-form {
+    padding-bottom: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+input[type=text] {
+    width: 90%;
+    padding: 5px;
+    margin: 10px 0px;
+    border-radius: 10px;
+}
+
+input[type=submit] {
+    color: white;
+    border-radius: 10px;
+    background-color: #D81E5B;
+    border-color: #D81E5B;
+    padding: 5px 10px;
+    margin-top: 5px;
+    box-shadow:  3px 5px 10px;
+    cursor: pointer;
+    transition: 400ms;
+}
+
+input[type=submit]:hover {
+    background-color: transparent;
+    color: #D81E5B;
+    transition: 400ms;
+}
+
+label {
+    padding-left: 2px;
+    font-weight: bold;
+}
+
+.task {
+    display: flex;
+    align-items: center;
+    padding: 3vw 0;
+}
+
+.task-content-container {
+    min-width: 90%;
+}
+
+.task-title {
+    font-weight: bold;
+    padding-bottom: 15px;
+}
+
+input[type=checkbox] {
+    width: 30px;
+    height: 30px;
+}
+
+.task-completed {
+    text-decoration: line-through;
+}
+
+hr {
+    border-color: #D81E5B;
+    border-radius: 10px;
+    margin: 20px 0px;
+}
+
+
+@media (max-width: 1100px) {
+    
+    .nav-container {
+        width: 100vw;
+        position: fixed;
+        top: unset;
+        bottom: 0;
+        border-radius: 0;
+    }
+    
+}
