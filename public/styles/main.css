@@ -41,7 +41,6 @@ body {
 }
 
 .nav-container {
-    position: sticky;
     z-index: 1;
     top: 0;
     background-color: #D81E5B;
@@ -95,7 +94,6 @@ body {
     margin-bottom: 50px;
     border-radius: 10px;
     min-height: 500px;
-    transition: width 500ms;
 }
 
 .form-open {
@@ -122,11 +120,14 @@ body {
 
 
 .task-form {
+    max-height: 100%;
     padding-bottom: 20px;
 }
 
 .hidden {
-    display: none;
+    max-height: 0;
+    padding: 0;
+    overflow: hidden;
 }
 
 input[type=text] {
