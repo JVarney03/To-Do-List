@@ -42,18 +42,12 @@
         </button>
     </div>
 
-    <form class="task-form hidden" id="input-form"
-    <% if (page === "today") { %>
-        action="/submit-today"
-    <% } else if (page === "work") { %>
-        action="/submit-work"
-    <% } %>
-    method="post">
+    <form action="/submit" class="task-form hidden" id="input-form" method="post">
         <label for="tName">Task Name</label>
         <input type="text" name="tName">
         <label for="tDescription">Description</label>
         <input type="text" name="tDescription">
-        <input type="submit" value="Submit">
+        <input type="submit" name="page" value="<%= page %>">
     </form>
 
     

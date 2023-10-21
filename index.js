@@ -86,9 +86,16 @@ app.get("/work", async (req, res) => {
 
 
 //Today form submit
-app.post("/submit-today", async (req, res) => {
+app.post("/submit", async (req, res) => {
+    let model = null
+    if (req.body.page === "today") {
+        model = HomeToDo;
+    } else if (req.body.page === "work") {
+        model = WorkToDo;
+    }
+    
     //Create new todo object
-    const newToDo = new HomeToDo({ taskName: req.body.tName, taskDescription: req.body.tDescription});
+    const newToDo = new model({ taskName: req.body.tName, taskDescription: req.body.tDescription});
     //Save to database
     await newToDo.save();
     //Redirect to work page
