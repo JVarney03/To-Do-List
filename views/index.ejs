@@ -57,13 +57,8 @@
                 <h2 class="task-title"> <%= taskList[i].taskName %> </h2>
                 <p class="task-description"> <%= taskList[i].taskDescription %> </p>
             </div>
-            <form 
-                <% if (page === "today") { %>
-                    action="/delete-today"
-                <% } else if (page === "work") { %>
-                    action="/delete-work"
-                <% } %>
-                method="post">
+            <form action="/delete" method="post">
+                <input type="hidden" name="page" value="<%= page %>">
                 <input type="checkbox" name="checkbox" value="<%= taskList[i]._id.toString() %>" onchange="this.form.submit()" class="completed">
             </form>
         </div>

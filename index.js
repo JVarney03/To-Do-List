@@ -85,9 +85,10 @@ app.get("/work", async (req, res) => {
 
 
 
-//Today form submit
+//Create new todo
 app.post("/submit", async (req, res) => {
-    let model = null
+    //Change model depending on current page
+    let model = null;
     if (req.body.page === "today") {
         model = HomeToDo;
     } else if (req.body.page === "work") {
@@ -102,21 +103,20 @@ app.post("/submit", async (req, res) => {
     res.redirect("back");
 });
 
-//Work form submit
-app.post("/submit-work", async (req, res) => {
-    //Create new todo object
-    const newToDo = new WorkToDo({ taskName: req.body.tName, taskDescription: req.body.tDescription});
-    //Save to database
-    await newToDo.save();
-    //Redirect to work page
-    res.redirect("back");
-})
+
 
 
 //Today delete todo
-app.post("/delete-today", async (req, res) => {
+app.post("/delete", async (req, res) => {
+    let model = null;
+    if (req.body.page === "today") {
+        model = HomeToDo;
+    } else if (req.body.page === "work") {
+        model = WorkToDo;
+    }
+    
     try {
-        await HomeToDo.deleteOne({_id: req.body.checkbox})
+        await model.deleteOne({_id: req.body.checkbox})
     } catch(error) {
         console.log(error);
     }
