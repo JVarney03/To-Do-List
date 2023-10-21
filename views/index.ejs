@@ -60,10 +60,18 @@
     <% for( let i = 0; i < taskList.length; i++ ) { %>
         <div class="task">
             <div class="task-content-container">
-                <h2 class="task-title"> <%= taskList[i][0] %> </h2>
-                <p class="task-description"> <%= taskList[i][1] %> </p>
+                <h2 class="task-title"> <%= taskList[i].taskName %> </h2>
+                <p class="task-description"> <%= taskList[i].taskDescription %> </p>
             </div>
-            <input type="checkbox" class="completed">
+            <form 
+                <% if (page === "today") { %>
+                    action="/delete-today"
+                <% } else if (page === "work") { %>
+                    action="/delete-work"
+                <% } %>
+                method="post">
+                <input type="checkbox" name="checkbox" value="<%= taskList[i]._id.toString() %>" onchange="this.form.submit()" class="completed">
+            </form>
         </div>
         <hr>
     <% } %>
