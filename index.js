@@ -3,7 +3,7 @@ import bodyParser from "body-parser";
 import mongoose from "mongoose";
 
 const app = express();
-const port = 3000
+const port = process.env.PORT || 3000;
 
 //Lists used to populate ejs templates
 let todayList = [];
@@ -146,6 +146,6 @@ app.post("/delete-work", async (req, res) => {
     
 });
 
-app.listen(port, () => {
+app.listen(port, "0.0.0.0", () => {
     console.log(`Listening on port: ${port}`);
 });
