@@ -20,7 +20,17 @@ app.use(bodyParser.urlencoded({extended: true}));
 //Mongoose setup
 
 //Connect to Database
-mongoose.connect('mongodb://127.0.0.1:27017/ToDoDB');
+async function connect() {
+    try {
+        mongoose.connect('mongodb+srv://jakevarney03:Woof03@cluster0.1gpnhez.mongodb.net/ToDoDB?retryWrites=true&w=majority');
+        console.log("Connection established");
+    } catch(error) {
+        console.log("Connection failed");
+        console.log(error);
+    }
+}
+
+connect();
 
 //Schema
 const toDoSchema = new mongoose.Schema({
