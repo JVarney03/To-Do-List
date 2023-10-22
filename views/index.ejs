@@ -33,37 +33,37 @@
 
    <div class="todo-list">
 
-    <div class="form-container">
-        <button  class="form-open">
-            <span class="material-symbols-outlined form-icon">
-                add_circle
-            </span>
-            <h1 class="form-button-text">Add To-do</h1>
-        </button>
-    </div>
-
-    <form action="/submit" class="task-form hidden" id="input-form" method="post">
-        <label for="tName">Task Name</label>
-        <input type="text" name="tName">
-        <label for="tDescription">Description</label>
-        <input type="text" name="tDescription">
-        <input type="submit" name="page" value="<%= page %>">
-    </form>
-
-    
-    <% for( let i = 0; i < taskList.length; i++ ) { %>
-        <div class="task">
-            <div class="task-content-container">
-                <h2 class="task-title"> <%= taskList[i].taskName %> </h2>
-                <p class="task-description"> <%= taskList[i].taskDescription %> </p>
-            </div>
-            <form action="/delete" method="post">
-                <input type="hidden" name="page" value="<%= page %>">
-                <input type="checkbox" name="checkbox" value="<%= taskList[i]._id.toString() %>" onchange="this.form.submit()" class="completed">
-            </form>
+        <div class="form-container">
+            <button  class="form-open">
+                <span class="material-symbols-outlined form-icon">
+                    add_circle
+                </span>
+                <h1 class="form-button-text">Add To-do</h1>
+            </button>
         </div>
-        <hr>
-    <% } %>
+
+        <form action="/submit" class="task-form hidden" id="input-form" method="post">
+            <label for="tName">Task Name</label>
+            <input type="text" name="tName">
+            <label for="tDescription">Description</label>
+            <input type="text" name="tDescription">
+            <input type="submit" name="page" value="<%= page %>">
+        </form>
+
+        
+        <% for( let i = 0; i < taskList.length; i++ ) { %>
+            <div class="task">
+                <div class="task-content-container">
+                    <h2 class="task-title"> <%= taskList[i].taskName %> </h2>
+                    <p class="task-description"> <%= taskList[i].taskDescription %> </p>
+                </div>
+                <form action="/delete" method="post">
+                    <input type="hidden" name="page" value="<%= page %>">
+                    <input type="checkbox" name="checkbox" value="<%= taskList[i]._id.toString() %>" onchange="this.form.submit()" class="completed">
+                </form>
+            </div>
+            <hr>
+        <% } %>
 
    </div>
 

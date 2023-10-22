@@ -66,6 +66,7 @@ async function populateData (model, list) {
 
 //Redirect to today
 app.get("/", (req, res) => {
+    console.log("Redirecting");
     res.redirect("/today");
 });
 
